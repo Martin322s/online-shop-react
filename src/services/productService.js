@@ -5,7 +5,7 @@ export const getAll = () =>
         .then(res => res.json());
 
 export const getOne = (productId) =>
-    fetch(`/shoes/${productId}`).then(res => res.json());
+    fetch(`${baseUrl}/shoes/${productId}`).then(res => res.json());
 
 export const createProduct = (productData, accessToken) => {
     return fetch(`${baseUrl}/shoes`, {

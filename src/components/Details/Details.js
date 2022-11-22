@@ -46,7 +46,7 @@ const Details = () => {
                             Delete
                         </Link>
                     </div>
-                    : null
+                    : <Link className="details-btn">Buy</Link>
                 }
             </div>
         </section>
