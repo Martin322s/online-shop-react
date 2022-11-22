@@ -38,3 +38,6 @@ export const deleteProduct = (productId, accessToken) => {
     })
         .then(res => res.json());
 }
+
+export const searchProduct = (queryString) => 
+    fetch(`http://localhost:3030/data/shoes?where=brand%20LIKE%20%22${queryString}%22`).then(res => res.json());

@@ -1,38 +1,52 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import * as productService from "../../services/productService";
+import ResultItem from "./ResultItem";
+
 
 const Search = () => {
+    const [product, setProduct] = useState([]);
+    const [query, setQuery] = useState({
+        queryStr: ''
+    });
+    const isEmpty = Object.keys(product).length === 0;
+
+    const searchHandler = (ev) => {
+        ev.preventDefault();
+
+        if (query.queryStr !== '') {
+            productService.searchProduct(query.queryStr)
+                .then(result => setProduct(result));
+        }
+    }
+
+    const changeHandler = (ev) => {
+        setQuery(state => ({
+            ...state,
+            queryStr: ev.target.value
+        }));
+    }
+
     return (
         <section id="search">
             <h2>Search by Brand</h2>
-            <form className="search-wrapper cf">
-                <input id="#search-input" type="text" name="search" placeholder="Search here..." required="" />
+            <form className="search-wrapper cf" onSubmit={(ev) => searchHandler(ev)}>
+                <input
+                    id="#search-input"
+                    type="text"
+                    name="search"
+                    placeholder="Search here..."
+                    required=""
+                    onChange={(ev) => changeHandler(ev)}
+                />
                 <button type="submit">Search</button>
             </form>
             <h3>Results:</h3>
             <div id="search-container">
-                <ul className="card-wrapper">
-                    {/* Display a li with information about every post (if any)*/}
-                    <li className="card">
-                        <img src="./images/travis.jpg" alt="travis" />
-                        <p>
-                            <strong>Brand: </strong>
-                            <span className="brand">Air Jordan</span>
-                        </p>
-                        <p>
-                            <strong>Model: </strong>
-                            <span className="model">1 Retro High TRAVIS SCOTT</span>
-                        </p>
-                        <p>
-                            <strong>Value:</strong>
-                            <span className="value">2000</span>$
-                        </p>
-                        <Link className="details-btn" href="">
-                            Details
-                        </Link>
-                    </li>
-                </ul>
-                {/* Display an h2 if there are no posts */}
-                {/* <h2>There are no results found.</h2> */}
+                {!isEmpty
+                    ? <ul className="card-wrapper">
+                        {product.map(x => <ResultItem key={x._id} product={x} />)}
+                    </ul>
+                    : <h2>There are no results found.</h2>}
             </div>
         </section>
     );
