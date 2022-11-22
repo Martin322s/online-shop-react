@@ -14,6 +14,8 @@ import { ProductContext } from './contexts/productContext';
 import Details from "./components/Details/Details";
 import Edit from "./components/Edit/Edit";
 import Delete from './components/Delete/Delete';
+import RouteGuard from './guards/RouteGuard';
+import PrivateRoute from './guards/PrivateRoute';
 
 function App() {
     const [auth, setAuth] = useLocalStorage('session', {});
@@ -29,14 +31,49 @@ function App() {
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/dashboard" element={<Dashboard />} />
-                            <Route path="/register" element={<Register />} />
-                            <Route path="/login" element={<Login />} />
-                            <Route path="/logout" element={<Logout />} />
-                            <Route path="/create" element={<Create />} />
+                            <Route path="/register" element={(
+                                <PrivateRoute>
+                                    <Register />
+                                </PrivateRoute>
+                            )} />
+
+                            <Route path="/login" element={(
+                                <PrivateRoute>
+                                    <Login />
+                                </PrivateRoute>
+                            )} />
+
+                            <Route path="/logout" element={(
+                                <RouteGuard>
+                                    <Logout />
+                                </RouteGuard>
+                            )} />
+
+                            <Route path="/create" element={(
+                                <RouteGuard>
+                                    <Create />
+                                </RouteGuard>
+                            )} />
+
                             <Route path="search" element={<Search />} />
-                            <Route path="/dashboard/details/:productId" element={<Details />} />
-                            <Route path="/dashboard/details/:productId/edit" element={<Edit />} />
-                            <Route path="/dashboard/details/:productId/delete" element={<Delete />} />
+
+                            <Route path="/dashboard/details/:productId" element={(
+                                <RouteGuard>
+                                    <Details />
+                                </RouteGuard>
+                            )} />
+
+                            <Route path="/dashboard/details/:productId/edit" element={(
+                                <RouteGuard>
+                                    <Edit />
+                                </RouteGuard>
+                            )} />
+
+                            <Route path="/dashboard/details/:productId/delete" element={(
+                                <RouteGuard>
+                                    <Delete />
+                                </RouteGuard>
+                            )} />
                         </Routes>
                     </ProductContext.Provider>
                 </main>
