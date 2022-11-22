@@ -27,7 +27,7 @@ const Edit = () => {
     useEffect(() => {
         productService.getOne(productId)
             .then(product => setCurrentProduct(product));
-    }, [productId])
+    }, [productId]);
 
     return (
         <section id="edit">

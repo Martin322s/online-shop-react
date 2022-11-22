@@ -7,6 +7,7 @@ import * as authService from "../../services/authService";
 const Logout = () => {
     const { user, userLogout } = useContext(AuthContext);
     const navigate = useNavigate();
+    
     try {
         authService.logoutUser(user.accessToken)
             .then(() => {

@@ -16,7 +16,6 @@ import RouteGuard from './guards/RouteGuard';
 import PrivateRoute from './guards/PrivateRoute';
 
 function App() {
-
     return (
         <AuthProvider>
             <div id="wrapper">

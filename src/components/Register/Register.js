@@ -11,6 +11,7 @@ const Register = () => {
         password: '',
         confirmPassword: ''
     });
+    
     const registerHandler = (ev) => {
         ev.preventDefault();
 

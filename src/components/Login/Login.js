@@ -10,6 +10,7 @@ const Login = () => {
         email: '',
         password: ''
     });
+    
     const loginHandler = (ev) => {
         ev.preventDefault();
 

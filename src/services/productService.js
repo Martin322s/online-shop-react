@@ -1,12 +1,14 @@
-
+const baseUrl = 'http://localhost:3030/data';
 
 export const getAll = () =>
-    fetch('http://localhost:3030/data/shoes?sortBy=_createdOn%20desc').then(res => res.json());
+    fetch(`${baseUrl}/shoes?sortBy=_createdOn%20desc`)
+        .then(res => res.json());
+
 export const getOne = (productId) =>
-    fetch(`http://localhost:3030/data/shoes/${productId}`).then(res => res.json());
+    fetch(`/shoes/${productId}`).then(res => res.json());
 
 export const createProduct = (productData, accessToken) => {
-    return fetch('http://localhost:3030/data/shoes', {
+    return fetch(`${baseUrl}/shoes`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -18,7 +20,7 @@ export const createProduct = (productData, accessToken) => {
 }
 
 export const editProduct = (productId, productData, accessToken) => {
-    return fetch(`http://localhost:3030/data/shoes/${productId}`, {
+    return fetch(`${baseUrl}/shoes/${productId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -30,7 +32,7 @@ export const editProduct = (productId, productData, accessToken) => {
 }
 
 export const deleteProduct = (productId, accessToken) => {
-    return fetch(`http://localhost:3030/data/shoes/${productId}`, {
+    return fetch(`${baseUrl}/shoes/${productId}`, {
         method: 'DELETE',
         headers: {
             'X-Authorization': accessToken
@@ -39,5 +41,6 @@ export const deleteProduct = (productId, accessToken) => {
         .then(res => res.json());
 }
 
-export const searchProduct = (queryString) => 
-    fetch(`http://localhost:3030/data/shoes?where=brand%20LIKE%20%22${queryString}%22`).then(res => res.json());
+export const searchProduct = (queryString) =>
+    fetch(`${baseUrl}/shoes?where=brand%20LIKE%20%22${queryString}%22`)
+        .then(res => res.json());

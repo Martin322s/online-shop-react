@@ -1,6 +1,6 @@
 import { useState } from "react";
 import * as productService from "../../services/productService";
-import ResultItem from "./ResultItem";
+import ResultItem from "./ResultItem/ResultItem";
 
 
 const Search = () => {

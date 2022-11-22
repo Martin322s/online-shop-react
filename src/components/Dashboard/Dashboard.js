@@ -9,6 +9,7 @@ const Dashboard = () => {
         gameService.getAll()
             .then(products => setProducts(products));
     }, []);
+    
     return (
         <section id="dashboard">
             <h2>Collectibles</h2>
