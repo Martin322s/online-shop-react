@@ -7,10 +7,8 @@ import Register from './components/Register/Register';
 import Login from "./components/Login/Login";
 import Create from './components/Create/Create';
 import Search from './components/Search/Search';
-import { AuthContext } from './contexts/AuthContext';
-import { useLocalStorage } from "./hooks/useLocalStorage";
+import { AuthProvider } from './contexts/AuthContext';
 import Logout from './components/Logout/Logout';
-import { ProductContext } from './contexts/productContext';
 import Details from "./components/Details/Details";
 import Edit from "./components/Edit/Edit";
 import Delete from './components/Delete/Delete';
@@ -18,68 +16,63 @@ import RouteGuard from './guards/RouteGuard';
 import PrivateRoute from './guards/PrivateRoute';
 
 function App() {
-    const [auth, setAuth] = useLocalStorage('session', {});
-    const userLogin = (userData) => setAuth(userData);
-    const userLogout = () => setAuth({});
 
     return (
-        <AuthContext.Provider value={{ user: auth, userLogin, userLogout }}>
+        <AuthProvider>
             <div id="wrapper">
                 <Header />
                 <main>
-                    <ProductContext.Provider value={{}}>
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/dashboard" element={<Dashboard />} />
-                            <Route path="/register" element={(
-                                <PrivateRoute>
-                                    <Register />
-                                </PrivateRoute>
-                            )} />
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/dashboard" element={<Dashboard />} />
+                        <Route path="/register" element={(
+                            <PrivateRoute>
+                                <Register />
+                            </PrivateRoute>
+                        )} />
 
-                            <Route path="/login" element={(
-                                <PrivateRoute>
-                                    <Login />
-                                </PrivateRoute>
-                            )} />
+                        <Route path="/login" element={(
+                            <PrivateRoute>
+                                <Login />
+                            </PrivateRoute>
+                        )} />
 
-                            <Route path="/logout" element={(
-                                <RouteGuard>
-                                    <Logout />
-                                </RouteGuard>
-                            )} />
+                        <Route path="/logout" element={(
+                            <RouteGuard>
+                                <Logout />
+                            </RouteGuard>
+                        )} />
 
-                            <Route path="/create" element={(
-                                <RouteGuard>
-                                    <Create />
-                                </RouteGuard>
-                            )} />
+                        <Route path="/create" element={(
+                            <RouteGuard>
+                                <Create />
+                            </RouteGuard>
+                        )} />
 
-                            <Route path="search" element={<Search />} />
+                        <Route path="search" element={<Search />} />
 
-                            <Route path="/dashboard/details/:productId" element={(
-                                <RouteGuard>
-                                    <Details />
-                                </RouteGuard>
-                            )} />
+                        <Route path="/dashboard/details/:productId" element={(
+                            <RouteGuard>
+                                <Details />
+                            </RouteGuard>
+                        )} />
 
-                            <Route path="/dashboard/details/:productId/edit" element={(
-                                <RouteGuard>
-                                    <Edit />
-                                </RouteGuard>
-                            )} />
+                        <Route path="/dashboard/details/:productId/edit" element={(
+                            <RouteGuard>
+                                <Edit />
+                            </RouteGuard>
+                        )} />
 
-                            <Route path="/dashboard/details/:productId/delete" element={(
-                                <RouteGuard>
-                                    <Delete />
-                                </RouteGuard>
-                            )} />
-                        </Routes>
-                    </ProductContext.Provider>
+                        <Route path="/dashboard/details/:productId/delete" element={(
+                            <RouteGuard>
+                                <Delete />
+                            </RouteGuard>
+                        )} />
+                    </Routes>
                 </main>
                 <Footer />
             </div>
-        </AuthContext.Provider>
+        </AuthProvider>
     );
 }
 
