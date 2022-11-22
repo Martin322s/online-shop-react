@@ -11,7 +11,7 @@ const Details = () => {
     useEffect(() => {
         productService.getOne(productId)
             .then(product => setCurrentProduct(product));
-    }, []);
+    }, [productId]);
 
     return (
         <section id="details">

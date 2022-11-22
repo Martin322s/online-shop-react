@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Search = () => {
     return (
         <section id="search">
@@ -24,9 +26,9 @@ const Search = () => {
                             <strong>Value:</strong>
                             <span className="value">2000</span>$
                         </p>
-                        <a className="details-btn" href="">
+                        <Link className="details-btn" href="">
                             Details
-                        </a>
+                        </Link>
                     </li>
                 </ul>
                 {/* Display an h2 if there are no posts */}
