@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3030/users';
+const baseUrl = 'https://online-shop-api-server.herokuapp.com/users';
 
 export const loginUser = (userData) => {
     return fetch(`${baseUrl}/login`, {

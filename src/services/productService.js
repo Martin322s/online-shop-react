@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3030/data';
+const baseUrl = 'https://online-shop-api-server.herokuapp.com/data';
 
 export const getAll = () =>
     fetch(`${baseUrl}/shoes?sortBy=_createdOn%20desc`)
