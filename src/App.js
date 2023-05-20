@@ -40,7 +40,9 @@ function App() {
 
                         <Route path="/logout" element={(
                             <RouteGuard>
-                                <Logout />
+                                <Suspense fallback={<SpinnerComponent /> }>
+                                    <Logout />
+                                </Suspense>
                             </RouteGuard>
                         )} />
 
@@ -54,7 +56,7 @@ function App() {
 
                         <Route path="/dashboard/details/:productId" element={(
                             <RouteGuard>
-                                <Suspense fallback={<SpinnerComponent /> }>
+                                <Suspense fallback={<SpinnerComponent />}>
                                     <Details />
                                 </Suspense>
                             </RouteGuard>
