@@ -1,10 +1,10 @@
-import { useContext } from "react";
+import { useContext, memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import * as authService from "../../services/authService";
 
 
-const Logout = () => {
+const Logout = memo(() => {
     const { user, userLogout } = useContext(AuthContext);
     const navigate = useNavigate();
     
@@ -18,6 +18,6 @@ const Logout = () => {
     } catch (err) {
         window.alert(err.message);
     }
-}
+});
 
 export default Logout;
