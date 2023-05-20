@@ -46,6 +46,7 @@ const Create = () => {
                         id="shoe-brand"
                         placeholder="Brand"
                         onChange={(ev) => changeHandler(ev)}
+                        required
                     />
                     <input
                         type="text"
@@ -53,6 +54,7 @@ const Create = () => {
                         id="shoe-model"
                         placeholder="Model"
                         onChange={(ev) => changeHandler(ev)}
+                        required
                     />
                     <input
                         type="text"
@@ -60,6 +62,7 @@ const Create = () => {
                         id="shoe-img"
                         placeholder="Image url"
                         onChange={(ev) => changeHandler(ev)}
+                        required
                     />
                     <input
                         type="text"
@@ -67,18 +70,21 @@ const Create = () => {
                         id="shoe-release"
                         placeholder="Release date"
                         onChange={(ev) => changeHandler(ev)}
+                        required
                     />
                     <input
                         type="text"
                         name="designer"
                         id="shoe-designer"
                         placeholder="Designer" onChange={(ev) => changeHandler(ev)}
+                        required
                     />
                     <input
                         type="text"
                         name="value"
                         id="shoe-value"
                         placeholder="Value" onChange={(ev) => changeHandler(ev)}
+                        required
                     />
                     <button type="submit">post</button>
                 </form>
