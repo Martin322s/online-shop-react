@@ -2,8 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import * as productService from "../../services/productService";
+import { memo } from "react";
 
-const Edit = () => {
+const Edit = memo(() => {
     const { productId } = useParams();
     const [currentProduct, setCurrentProduct] = useState({});
     const { user } = useContext(AuthContext);
@@ -81,6 +82,6 @@ const Edit = () => {
             </div>
         </section>
     );
-}
+});
 
 export default Edit;
