@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Footer from "./components/common/Footer";
 import Header from "./components/common/Header";
@@ -11,12 +11,11 @@ import Search from './components/Search/Search';
 import { AuthProvider } from './contexts/AuthContext';
 import Logout from './components/Logout/Logout';
 import Details from "./components/Details/Details";
-import Delete from './components/Delete/Delete';
 import RouteGuard from './guards/RouteGuard';
 import PrivateRoute from './guards/PrivateRoute';
-import { Suspense } from 'react';
 import SpinnerComponent from './components/Spinner/Spinner';
 const Edit = lazy(() => import("./components/Edit/Edit"));
+const Delete = lazy(() => import('./components/Delete/Delete'));
 
 function App() {
     return (
@@ -61,7 +60,7 @@ function App() {
 
                         <Route path="/dashboard/details/:productId/edit" element={(
                             <RouteGuard>
-                                <Suspense fallback={<SpinnerComponent /> }>
+                                <Suspense fallback={<SpinnerComponent />}>
                                     <Edit />
                                 </Suspense>
                             </RouteGuard>
@@ -69,7 +68,9 @@ function App() {
 
                         <Route path="/dashboard/details/:productId/delete" element={(
                             <RouteGuard>
-                                <Delete />
+                                <Suspense fallback={<SpinnerComponent />}>
+                                    <Delete />
+                                </Suspense>
                             </RouteGuard>
                         )} />
                     </Routes>
