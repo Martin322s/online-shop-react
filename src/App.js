@@ -10,10 +10,10 @@ import Create from './components/Create/Create';
 import Search from './components/Search/Search';
 import { AuthProvider } from './contexts/AuthContext';
 import Logout from './components/Logout/Logout';
-import Details from "./components/Details/Details";
 import RouteGuard from './guards/RouteGuard';
 import PrivateRoute from './guards/PrivateRoute';
 import SpinnerComponent from './components/Spinner/Spinner';
+const Details = lazy(() => import("./components/Details/Details"));
 const Edit = lazy(() => import("./components/Edit/Edit"));
 const Delete = lazy(() => import('./components/Delete/Delete'));
 
@@ -54,7 +54,9 @@ function App() {
 
                         <Route path="/dashboard/details/:productId" element={(
                             <RouteGuard>
-                                <Details />
+                                <Suspense fallback={<SpinnerComponent /> }>
+                                    <Details />
+                                </Suspense>
                             </RouteGuard>
                         )} />
 
