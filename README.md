@@ -37,3 +37,10 @@ Implement a front-end app (SPA) for creating and managing shoes. The application
 - Send a GET request to /users/logout.
 - Clear session information stored in browser storage upon success.
 - Redirect the user to the Dashboard page upon successful logout.
+
+## Dashboard (15 pts)
+- Display a list of all shoes in the system.
+- Clicking on the details button in a shoe card leads to the details page for that shoe.
+- Accessible to both guests and logged-in users.
+- If there are no shoes, display a specific view.
+- Send a GET request to /data/shoes?sortBy=_createdOn%20desc to retrieve the list of shoes.
