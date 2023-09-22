@@ -45,7 +45,7 @@ Implement a front-end app (SPA) for creating and managing shoes. The application
 - If there are no shoes, display a specific view.
 - Send a GET request to /data/shoes?sortBy=_createdOn%20desc to retrieve the list of shoes.
 
-- ## Adding New Item (15 pts)
+## Adding New Item (15 pts)
 - Available to logged-in users.
 - Implement a form for adding a new shoe.
 - Check that all fields are filled before sending the request.
@@ -57,15 +57,24 @@ Implement a front-end app (SPA) for creating and managing shoes. The application
 - Display Edit and Delete buttons for the creator of the shoe.
 - Send a GET request to /data/shoes/:id to retrieve details about a specific shoe.
 
-- ## Edit Item Screen (15 pts)
+## Edit Item Screen (15 pts)
 - Available to logged-in users for editing their own items.
 - Implement a form with input fields for editing properties.
 - Check that all fields are filled before sending the request.
 - Send a PUT request to /data/shoes/:id to edit a shoe.
 - Redirect the user to the Details page upon success.
 
-- ## Delete Item (10 pts)
+## Delete Item (10 pts)
 - Available to logged-in users for deleting their own items.
 - Display a confirmation dialog before deleting an item.
 - Send a DELETE request to /data/shoes/:id to delete a shoe.
 - Redirect the user to the Dashboard page upon success.
+
+## (BONUS) Search Page (10 pts)
+- Allow users and guests to filter shoes by brand.
+- Implement an input field for submitting queries.
+- Display a list of matching shoes upon query submission.
+- Display Details button for logged-in users.
+- Hide Details button for logged-out users.
+- Display a specific view if there are no results.
+- Send a GET request to /data/shoes?where=brand%20LIKE%20%22${query}%22 for filtering.
