@@ -56,3 +56,10 @@ Implement a front-end app (SPA) for creating and managing shoes. The application
 - All users can view details about shoes.
 - Display Edit and Delete buttons for the creator of the shoe.
 - Send a GET request to /data/shoes/:id to retrieve details about a specific shoe.
+
+- ## Edit Item Screen (15 pts)
+- Available to logged-in users for editing their own items.
+- Implement a form with input fields for editing properties.
+- Check that all fields are filled before sending the request.
+- Send a PUT request to /data/shoes/:id to edit a shoe.
+- Redirect the user to the Details page upon success.
