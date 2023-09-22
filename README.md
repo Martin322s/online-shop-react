@@ -51,3 +51,8 @@ Implement a front-end app (SPA) for creating and managing shoes. The application
 - Check that all fields are filled before sending the request.
 - Send a POST request to /data/shoes to create a new shoe.
 - Redirect the user to the Dashboard page upon success.
+
+## Item Details (10 pts)
+- All users can view details about shoes.
+- Display Edit and Delete buttons for the creator of the shoe.
+- Send a GET request to /data/shoes/:id to retrieve details about a specific shoe.
