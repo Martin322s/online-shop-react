@@ -14,3 +14,13 @@ Implement a front-end app (SPA) for creating and managing shoes. The application
   - Register (for guests)
   - Add Pair (for logged-in users)
   - Logout (for logged-in users)
+
+## Home Page (10 pts)
+- Implement a static Home page using the provided structure.
+
+## Login User (5 pts)
+- Users can log in using email and password.
+- Send a POST request to /users/login with the provided user credentials.
+- Upon successful login, store the session token using sessionStorage or localStorage.
+- Redirect the user to the Dashboard page.
+- Display error messages using system dialog (window.alert) if there are any issues.
