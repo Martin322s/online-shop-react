@@ -63,3 +63,9 @@ Implement a front-end app (SPA) for creating and managing shoes. The application
 - Check that all fields are filled before sending the request.
 - Send a PUT request to /data/shoes/:id to edit a shoe.
 - Redirect the user to the Details page upon success.
+
+- ## Delete Item (10 pts)
+- Available to logged-in users for deleting their own items.
+- Display a confirmation dialog before deleting an item.
+- Send a DELETE request to /data/shoes/:id to delete a shoe.
+- Redirect the user to the Dashboard page upon success.
