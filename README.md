@@ -44,3 +44,10 @@ Implement a front-end app (SPA) for creating and managing shoes. The application
 - Accessible to both guests and logged-in users.
 - If there are no shoes, display a specific view.
 - Send a GET request to /data/shoes?sortBy=_createdOn%20desc to retrieve the list of shoes.
+
+- ## Adding New Item (15 pts)
+- Available to logged-in users.
+- Implement a form for adding a new shoe.
+- Check that all fields are filled before sending the request.
+- Send a POST request to /data/shoes to create a new shoe.
+- Redirect the user to the Dashboard page upon success.
