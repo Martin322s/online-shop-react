@@ -24,3 +24,10 @@ Implement a front-end app (SPA) for creating and managing shoes. The application
 - Upon successful login, store the session token using sessionStorage or localStorage.
 - Redirect the user to the Dashboard page.
 - Display error messages using system dialog (window.alert) if there are any issues.
+
+## Register User (10 pts)
+- Users can register with a valid email and password.
+- Send a POST request to /users/register with user registration data.
+- Upon successful registration, store the session token using sessionStorage or localStorage.
+- Redirect the user to the Dashboard page.
+- Display error messages using system dialog (window.alert) for validation and issues.
